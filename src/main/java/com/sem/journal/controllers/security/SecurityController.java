@@ -1,7 +1,6 @@
 package com.sem.journal.controllers.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,7 +35,7 @@ public class SecurityController {
 	public ServiceResult user(@RequestBody JournalUser user){
 		ServiceResult serviceResult = new ServiceResult();
 		JournalUser journalUser = journalUserService.findJournalUserByEmail(user.getEmail());
-		journalUser.setPassword(null);
+//		journalUser.setPassword(null);
 		serviceResult.setResult(journalUser);
 		return serviceResult;
 	}

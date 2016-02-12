@@ -7,6 +7,7 @@ C:\Users\Lorena\workspace\journal\src\main\java\com\sem\journal\config\WebMvcCon
 C:\Users\Lorena\workspace\journal\src\main\java\com\sem\journal\util\enums\EResult.java
 C:\Users\Lorena\workspace\journal\src\main\java\com\sem\journal\config\MvcWebApplicationInitializer.java
 C:\Users\Lorena\workspace\journal\src\main\java\com\sem\journal\controllers\security\SecurityController.java
+C:\Users\Lorena\workspace\journal\src\main\java\com\sem\journal\config\SecurityConfiguration.java
 C:\Users\Lorena\workspace\journal\src\main\java\com\sem\journal\repos\VolumeRepository.java
 C:\Users\Lorena\workspace\journal\src\main\java\com\sem\journal\config\PersistencesJPAConfig.java
 C:\Users\Lorena\workspace\journal\src\main\java\com\sem\journal\repos\JournalUserRepository.java
@@ -18,7 +19,6 @@ C:\Users\Lorena\workspace\journal\src\main\java\com\sem\journal\services\securit
 C:\Users\Lorena\workspace\journal\src\main\java\com\sem\journal\services\JournalUserService.java
 C:\Users\Lorena\workspace\journal\src\main\java\com\sem\journal\services\SubscriptionService.java
 C:\Users\Lorena\workspace\journal\src\main\java\com\sem\journal\model\JournalUser.java
-C:\Users\Lorena\workspace\journal\src\main\java\com\sem\journal\config\SecurityConfig.java
 C:\Users\Lorena\workspace\journal\src\main\java\com\sem\journal\controllers\SubscriptionController.java
 C:\Users\Lorena\workspace\journal\src\main\java\com\sem\journal\util\SecurityConstants.java
 C:\Users\Lorena\workspace\journal\src\main\java\com\sem\journal\services\VolumeService.java

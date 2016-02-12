@@ -12,7 +12,7 @@
 					}
 				});
 		var list_journals = $resource(
-				'http://localhost:8080/journal/rest/journals/', {}, {
+				'http://localhost:8080/journal/rest/journals', {}, {
 					query : {
 						method : "GET",
 						isArray : false
@@ -37,7 +37,6 @@
 				return list_journals_by_user.query({
 					journalUser : p_journalUser
 				});
-				console.log('getStamp despues ');
 			},
 			createJournal : function(p_name, p_journalUser) {
 				return create_journal.query({
