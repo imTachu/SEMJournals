@@ -35,9 +35,11 @@ public class PersistencesJPAConfig {
 	private static final String DATABASE_USERNAME = "db.username";
 	private static final String DATABASE_PASSWORD = "db.password";
 
-	private static final String PROPERTY_NAME_HIBERNATE_DIALECT = "hibernate.dialect";
-	private static final String PROPERTY_NAME_HIBERNATE_SHOW_SQL = "hibernate.show_sql";
-	private static final String PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN = "entitymanager.packages.to.scan";
+	private static final String HIBERNATE_DIALECT = "hibernate.dialect";
+	private static final String HIBERNATE_SHOW_SQL = "hibernate.show_sql";
+	private static final String HIBERNATE_DEFAULT_SCHEMA = "hibernate.default_schema";
+	private static final String HIBERNATE_NON_CONTEXTUAL = "hibernate.temp.use_jdbc_metadata_defaults";
+	private static final String ENTITYMANAGER_PACKAGES_TO_SCAN = "entitymanager.packages.to.scan";
 
 	@Resource
 	private Environment env;
@@ -46,7 +48,7 @@ public class PersistencesJPAConfig {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(dataSource());
-		em.setPackagesToScan(env.getRequiredProperty(PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN));
+		em.setPackagesToScan(env.getRequiredProperty(ENTITYMANAGER_PACKAGES_TO_SCAN));
 
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);
@@ -81,8 +83,10 @@ public class PersistencesJPAConfig {
 
 	public Properties hibProperties() {
 		Properties properties = new Properties();
-		properties.put(PROPERTY_NAME_HIBERNATE_DIALECT, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_DIALECT));
-		properties.put(PROPERTY_NAME_HIBERNATE_SHOW_SQL, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_SHOW_SQL));
+		properties.put(HIBERNATE_DIALECT, env.getRequiredProperty(HIBERNATE_DIALECT));
+		properties.put(HIBERNATE_SHOW_SQL, env.getRequiredProperty(HIBERNATE_SHOW_SQL));
+		properties.put(HIBERNATE_DEFAULT_SCHEMA, env.getRequiredProperty(HIBERNATE_DEFAULT_SCHEMA));
+		properties.put(HIBERNATE_NON_CONTEXTUAL, env.getRequiredProperty(HIBERNATE_NON_CONTEXTUAL));
 
 		return properties;
 	}

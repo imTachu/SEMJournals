@@ -49,10 +49,10 @@ public class Journal implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "journal")
 	private List<Subscription> subscriptionList;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "journal", fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "journal", fetch = FetchType.LAZY)
 	private List<Volume> volumeList;
 
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "publisher_id")
 	private JournalUser journalUser;
 
@@ -113,6 +113,7 @@ public class Journal implements Serializable {
 	/**
 	 * @return the volumeList
 	 */
+	@JsonIgnore
 	public List<Volume> getVolumeList() {
 		return volumeList;
 	}

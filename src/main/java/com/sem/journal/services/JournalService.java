@@ -1,15 +1,15 @@
 package com.sem.journal.services;
 
-import com.sem.journal.model.Journal;
-import com.sem.journal.model.JournalUser;
-import com.sem.journal.repos.JournalRepository;
-import com.sem.journal.repos.JournalUserRepository;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.sem.journal.model.Journal;
+import com.sem.journal.model.JournalUser;
+import com.sem.journal.repos.JournalRepository;
+import com.sem.journal.repos.JournalUserRepository;
 
 /**
  * @author Lorena Salamanca

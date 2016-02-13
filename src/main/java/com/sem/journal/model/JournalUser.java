@@ -30,8 +30,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class JournalUser implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
-	@SequenceGenerator(name = "user_sequence", sequenceName = "journal_user_id_seq", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
+	@SequenceGenerator(name = "journal_user_sequence", sequenceName = "journal_user_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "journal_user_sequence")
 	@Basic(optional = false)
 	@Column(name = "id")
 	private Integer id;
@@ -48,8 +48,7 @@ public class JournalUser implements Serializable {
 	@Column(name = "family_name")
 	private String familyName;
 
-	@Basic(optional = false)
-	@NotNull
+	@Basic(optional = true)
 	@Column(name = "password")
 	private String password;
 

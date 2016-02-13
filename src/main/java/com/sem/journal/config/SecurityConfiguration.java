@@ -33,7 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		http				
 			.antMatcher("/rest/**")
 			.authorizeRequests()				
-				.antMatchers("/rest/journals","/subscription/{journalUser}", "/user").permitAll()
+				.antMatchers("/rest/journals","/rest/subscription/{journalUser}", "/rest/user/public").permitAll()
 				.anyRequest().authenticated()
 				.and()			
 			.logout()				

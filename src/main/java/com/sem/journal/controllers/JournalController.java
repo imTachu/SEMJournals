@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,13 +21,17 @@ import com.sem.journal.util.ServiceResult;
 @RequestMapping(value = "/rest")
 public class JournalController {
 
+	private static Logger LOG = Logger.getLogger(JournalService.class);
+	
 	@Autowired
 	private JournalService journalService;
 
 	@RequestMapping(value = "/journals", method = RequestMethod.GET)
-	public ServiceResult getJournals(HttpServletResponse res) {
+	public ServiceResult getAllJournals(HttpServletResponse res) {
+		LOG.info("JournalController#getAllJournals");
 		ServiceResult ro = new ServiceResult();
 		List<Journal> journals = journalService.getAllJournals();
+		LOG.info("JournalController#getAllJournals2");
 		ro.setResult(journals);
 		ro.setCheckMessage("This is the serviceResult!");
 		ro.setTotalObjects(journals.size());

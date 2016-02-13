@@ -20,8 +20,7 @@
 						<div class="text-left">
 							<label class="checkbox"> <input type="checkbox"
 								ng-checked="checkedFruits.indexOf(journal) != -1"
-								ng-click="toggleCheck(journal)"> {{journal.name}} |
-								{{journal.volumeList.length}} volumes
+								ng-click="toggleCheck(journal)"> {{journal.name}}
 							</label>
 						</div>
 					</div>
@@ -44,6 +43,8 @@
 					<li><a href="">3</a></li>
 					<li><a href="">&raquo;</a></li>
 				</ul>
+				<pagination total-items="totalItems" items-per-page="itemsPerPage"
+					ng-model="currentPage" ng-change="pageChanged()"></pagination>
 			</div>
 		</div>
 	</div>
@@ -65,8 +66,18 @@
 					<div class="container" ng-show="showDiv">
 						<p>Please indicate the e-mail that will be linked to this
 							subscription</p>
-						<input type="email" placeholder="Email"
-							ng-model="signupData.email" required />
+						<div class="col-sm-4">
+							<div class="login-form">
+								<form name="form">
+									<input name="givenName" type="text" placeholder="Given Name"
+										ng-model="signupData.givenName" required /> <input
+										name="familyName" type="text" placeholder="Family Name"
+										ng-model="signupData.familyName" required /> <input
+										type="email" placeholder="Email" ng-model="signupData.email"
+										required /> 
+								</form>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -76,7 +87,7 @@
 					</div>
 					<div ng-show="showDiv" class="col-sm-2">
 						<button type="button" class="btn btn-success"
-							ng-click="showDiv = !showDiv">Ready!</button>
+							ng-click="publicSignUp()" ng-disabled="form.$invalid">Ready!</button>
 					</div>
 					<div class="col-sm-2">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
