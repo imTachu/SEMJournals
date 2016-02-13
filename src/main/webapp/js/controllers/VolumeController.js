@@ -6,7 +6,7 @@
 			volumeService.createVolume($scope.volume.name,
 					$scope.volume.journal, true).$promise.then(function(
 					response) {
-				$scope.stamps = response.resultado;
+				$scope.stamps = response.result;
 				$scope.createStampForm.$setPristine();
 			}, function(response) {
 				console.log(response);

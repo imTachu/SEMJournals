@@ -1,55 +1,89 @@
 <section>
 	<div class="header-bottom">
-			<div class="container">
-				<div class="row">					
-					<div class="col-sm">
-						<div class="search_box pull-right">
-							<input type="text" placeholder="Search" ng-model="search"/>
-						</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm">
+					<div class="search_box pull-right">
+						<input type="text" placeholder="Search" ng-model="search" />
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-9 padding-right">
-				<div class="features_items">
-					<!--features_items-->
-					<h2 class="title text-center">Journals</h2>
-					<div class="col-sm-4" data-ng-repeat="journal in journals | filter: search">
-						<div class="product-image-wrapper">
-							<div class="single-products" ng-click="addItemToCart(product)">
-								<div class="productinfo text-center">
-<!-- 									<img ng-src="{{product.idStamp.image}}" alt="" /> -->
-									<h2>{{journal.name}}</h2>
-									<p>{{journal.journalUser.givenName }}</p>
-									<a href="#" class="btn btn-default add-to-cart" ng-click="addItemToCart(product)"><i
-										class="fa fa-shopping-cart"></i>Add to cart</a>
-								</div>
-								<div class="product-overlay">
-									<div class="overlay-content">
-										<h2>{{product.idStamp.price + product.idStyle.price | currency : symbol : fractionSize}}</h2>
-										<p>{{product.text }}</p>
-										<!--<a  class="btn btn-default add-to-cart"><i-->
-											<!--class="fa fa-shopping-cart" ng-click="addItemToCart(product)"></i>Add to cart</a>-->
-										<a href="" ng-click="selectCategory(category.id)"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-								</div>
-							</div>
+			<h2 class="title text-center">Journals</h2>
+			<div class="row vertical-align">
+				<div class="col-sm-7"
+					data-ng-repeat="journal in journals | filter: search">
+					<div class="row">
+						<div class="text-left">
+							<label class="checkbox"> <input type="checkbox"
+								ng-checked="checkedFruits.indexOf(journal) != -1"
+								ng-click="toggleCheck(journal)"> {{journal.name}} |
+								{{journal.volumeList.length}} volumes
+							</label>
 						</div>
 					</div>
-					<div style="clear: both; display: block" ng-hide="true">
-						<ul class="pagination">
-							<li class="active"><a href="">1</a></li>
-							<li><a href="">2</a></li>
-							<li><a href="">3</a></li>
-							<li><a href="">&raquo;</a></li>
-						</ul>
+				</div>
+				<div class="col-sm-2"
+					style="display: flex; align-items: center; justify-content: center; flex-direction: row;">
+					<div class="text-left">
+						<button type="button" class="btn btn-info btn-lg"
+							ng-disabled="checkedFruits.length < 1" data-toggle="modal"
+							data-target="#myModal">I want to subscribe!</button>
 					</div>
 				</div>
-				<!--features_items-->
+
 			</div>
+
+			<div style="clear: both; display: block">
+				<ul class="pagination">
+					<li class="active"><a href="">1</a></li>
+					<li><a href="">2</a></li>
+					<li><a href="">3</a></li>
+					<li><a href="">&raquo;</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Do you want to subscribe?</h4>
+				</div>
+				<div class="modal-body">
+					<div class="container" ng-show="!showDiv">
+						<p>Would you like to subscribe to {{checkedFruits.length}}
+							journals?</p>
+					</div>
+					<div class="container" ng-show="showDiv">
+						<p>Please indicate the e-mail that will be linked to this
+							subscription</p>
+						<input type="email" placeholder="Email"
+							ng-model="signupData.email" required />
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div ng-show="!showDiv" class="col-sm-2">
+						<button type="button" class="btn btn-info"
+							ng-click="showDiv = !showDiv">Sure</button>
+					</div>
+					<div ng-show="showDiv" class="col-sm-2">
+						<button type="button" class="btn btn-success"
+							ng-click="showDiv = !showDiv">Ready!</button>
+					</div>
+					<div class="col-sm-2">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </section>

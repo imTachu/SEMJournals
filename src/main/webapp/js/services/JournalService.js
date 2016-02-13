@@ -14,8 +14,7 @@
 		var list_journals = $resource(
 				'http://localhost:8080/journal/rest/journals', {}, {
 					query : {
-						method : "GET",
-						isArray : false
+						method : "GET"
 					}
 				});
 		var create_journal = $resource(
@@ -47,5 +46,5 @@
 		}
 	};
 	angular.module('journal.services').factory('journalService',
-			[ '$resource', JournalService ]);
+			[ '$resource', '$http', JournalService ]);
 }());
